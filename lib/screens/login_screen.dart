@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gameplay/routes/app_routes.dart';
 import 'package:gameplay/themes/app_colors.dart';
 import 'package:gameplay/themes/app_images.dart';
 import 'package:gameplay/themes/app_text_styles.dart';
@@ -50,7 +51,9 @@ class LoginScreen extends StatelessWidget {
               child: SocialButtonLogin(
                 title: 'Entrar com Discord',
                 icon: AppImages.discord,
-                onTap: (){},
+                onTap: () => Navigator.of(context).pushReplacementNamed(
+                  AppRoutes.homeScreen,
+                ),
               ),
             )
           ],

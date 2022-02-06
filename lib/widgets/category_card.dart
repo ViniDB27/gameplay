@@ -5,7 +5,7 @@ class CategoryCard extends StatelessWidget {
   const CategoryCard({
     Key? key,
     required this.title,
-    required this.icon, 
+    required this.icon,
     this.onTap,
   }) : super(key: key);
 
@@ -23,12 +23,13 @@ class CategoryCard extends StatelessWidget {
         margin: const EdgeInsets.only(right: 10),
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xFF1D2766),
-                Color(0xFF171F52),
-              ]),
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF1D2766),
+              Color(0xFF171F52),
+            ],
+          ),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color: const Color(0xFF171F52),

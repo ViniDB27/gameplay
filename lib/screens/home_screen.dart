@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gameplay/routes/app_routes.dart';
 import 'package:gameplay/themes/app_colors.dart';
 import 'package:gameplay/themes/app_images.dart';
 import 'package:gameplay/themes/app_text_styles.dart';
@@ -41,7 +42,9 @@ class HomeScreen extends StatelessWidget {
                 style: AppTextStyles.subtitleHome,
               ),
               trailing: GestureDetector(
-                onTap: () {},
+                onTap: () => Navigator.of(context).pushNamed(
+                  AppRoutes.scheduleScreen,
+                ),
                 child: Container(
                   width: 48,
                   height: 48,
@@ -63,7 +66,7 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: const [
                 CategoryCard(
                   title: 'Ranqueada',
@@ -118,4 +121,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
