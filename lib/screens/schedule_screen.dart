@@ -60,204 +60,208 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         backgroundColor: AppColors.primaryLight,
         centerTitle: true,
       ),
-      body: Padding(
+      body: Container(
         padding: const EdgeInsets.only(
-          right: 20,
-          left: 20,
-          top: 40,
-          bottom: 20,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Categorias',
-              style: AppTextStyles.subtitleBoldHome,
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                CategoryCard(
-                  title: 'Ranqueadas',
-                  icon: AppImages.ranqued,
-                ),
-                CategoryCard(
-                  title: 'Duelo 1x1',
-                  icon: AppImages.pvp,
-                ),
-                CategoryCard(
-                  title: 'Diversão',
-                  icon: AppImages.casual,
-                ),
-              ],
-            ),
-            const SizedBox(height: 40),
-            Container(
-              width: size.width,
-              height: 68,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                  color: AppColors.primaryLight,
-                ),
+        right: 20,
+        left: 20,
+        top: 40,
+        bottom: 20,
+      ),
+        width: size.width,
+        height: size.height,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Categorias',
+                style: AppTextStyles.subtitleBoldHome,
               ),
-              child: Row(
-                children: [
-                  Container(
-                    width: 64,
-                    height: 68,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      gradient: const LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0xFF1D2766),
-                          Color(0xFF171F52),
-                        ],
-                      ),
-                    ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  CategoryCard(
+                    title: 'Ranqueadas',
+                    icon: AppImages.ranqued,
                   ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Selecionar um servidor',
-                          style: AppTextStyles.subtitleBoldHome,
-                          textAlign: TextAlign.center,
-                        ),
-                        const Icon(
-                          Icons.arrow_right,
-                          color: AppColors.heading,
-                        ),
-                      ],
-                    ),
+                  CategoryCard(
+                    title: 'Duelo 1x1',
+                    icon: AppImages.pvp,
+                  ),
+                  CategoryCard(
+                    title: 'Diversão',
+                    icon: AppImages.casual,
                   ),
                 ],
               ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Dia e mês',
-                      style: AppTextStyles.subtitleBoldHome,
-                    ),
-                    const SizedBox(height: 10),
-                    InkWell(
-                      onTap: getDate,
-                      child: Container(
-                        width: (size.width / 2) - 30,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          gradient: const LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color(0xFF1D2766),
-                              Color(0xFF171F52),
-                            ],
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            dayMon,
-                            style: AppTextStyles.titleHome,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Horário',
-                      style: AppTextStyles.subtitleBoldHome,
-                    ),
-                    const SizedBox(height: 10),
-                    InkWell(
-                      onTap: getTime,
-                      child: Container(
-                        width: (size.width / 2) - 30,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          gradient: const LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color(0xFF1D2766),
-                              Color(0xFF171F52),
-                            ],
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            time,
-                            style: AppTextStyles.titleHome,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Text(
-              'Descrição',
-              style: AppTextStyles.subtitleBoldHome,
-            ),
-            const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.all(10),
-              width: size.width,
-              height: 120,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                gradient: const LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Color(0xFF1D2766),
-                    Color(0xFF171F52),
-                  ],
-                ),
-              ),
-              child: TextFormField(
-                controller: _descriptionController,
-                maxLines: 5,
-                keyboardType: TextInputType.multiline,
-                style: AppTextStyles.subtitleHome,
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-            const SizedBox(height: 60),
-            Container(
-              width: size.width,
-              height: 60,
-              decoration: BoxDecoration(
+              const SizedBox(height: 40),
+              Container(
+                width: size.width,
+                height: 68,
+                decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  color: AppColors.secondary),
-              child: Center(
-                child: Text(
-                  'Agendar',
-                  style: AppTextStyles.titleHome,
+                  border: Border.all(
+                    color: AppColors.primaryLight,
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 64,
+                      height: 68,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        gradient: const LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color(0xFF1D2766),
+                            Color(0xFF171F52),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Selecionar um servidor',
+                            style: AppTextStyles.subtitleBoldHome,
+                            textAlign: TextAlign.center,
+                          ),
+                          const Icon(
+                            Icons.arrow_right,
+                            color: AppColors.heading,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-          ],
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Dia e mês',
+                        style: AppTextStyles.subtitleBoldHome,
+                      ),
+                      const SizedBox(height: 10),
+                      InkWell(
+                        onTap: getDate,
+                        child: Container(
+                          width: (size.width / 2) - 30,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            gradient: const LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Color(0xFF1D2766),
+                                Color(0xFF171F52),
+                              ],
+                            ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              dayMon,
+                              style: AppTextStyles.titleHome,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Horário',
+                        style: AppTextStyles.subtitleBoldHome,
+                      ),
+                      const SizedBox(height: 10),
+                      InkWell(
+                        onTap: getTime,
+                        child: Container(
+                          width: (size.width / 2) - 30,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            gradient: const LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Color(0xFF1D2766),
+                                Color(0xFF171F52),
+                              ],
+                            ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              time,
+                              style: AppTextStyles.titleHome,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'Descrição',
+                style: AppTextStyles.subtitleBoldHome,
+              ),
+              const SizedBox(height: 10),
+              Container(
+                padding: const EdgeInsets.all(10),
+                width: size.width,
+                height: 120,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  gradient: const LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFF1D2766),
+                      Color(0xFF171F52),
+                    ],
+                  ),
+                ),
+                child: TextFormField(
+                  controller: _descriptionController,
+                  maxLines: 5,
+                  keyboardType: TextInputType.multiline,
+                  style: AppTextStyles.subtitleHome,
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 60),
+              Container(
+                width: size.width,
+                height: 60,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: AppColors.secondary),
+                child: Center(
+                  child: Text(
+                    'Agendar',
+                    style: AppTextStyles.titleHome,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

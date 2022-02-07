@@ -61,62 +61,68 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                CategoryCard(
-                  title: 'Ranqueada',
-                  icon: AppImages.ranqued,
-                ),
-                CategoryCard(
-                  title: 'PVP',
-                  icon: AppImages.pvp,
-                ),
-                CategoryCard(
-                  title: 'Casual',
-                  icon: AppImages.casual,
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 40),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Partidas agendadas',
-                  style: AppTextStyles.subtitleBoldHome,
-                ),
-                Text(
-                  'Total 6',
-                  style: AppTextStyles.subtitleHome,
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-              vertical: 20,
-            ),
-            child: Expanded(
-              child: Container(
-                width: size.width,
-                height: size.height - 400,
-                child: ListView.builder(
-                  itemCount: 8,
-                  itemBuilder: (ctx, index) => const RoundsCard(),
+      body: Container(
+        width: size.width,
+        height: size.height - 120,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const [
+                    CategoryCard(
+                      title: 'Ranqueada',
+                      icon: AppImages.ranqued,
+                    ),
+                    CategoryCard(
+                      title: 'PVP',
+                      icon: AppImages.pvp,
+                    ),
+                    CategoryCard(
+                      title: 'Casual',
+                      icon: AppImages.casual,
+                    ),
+                  ],
                 ),
               ),
-            ),
+              const SizedBox(height: 40),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Partidas agendadas',
+                      style: AppTextStyles.subtitleBoldHome,
+                    ),
+                    Text(
+                      'Total 6',
+                      style: AppTextStyles.subtitleHome,
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 20,
+                ),
+                child: Expanded(
+                  child: Container(
+                    width: size.width,
+                    height: size.height - 400,
+                    child: ListView.builder(
+                      itemCount: 8,
+                      itemBuilder: (ctx, index) => const RoundsCard(),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
